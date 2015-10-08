@@ -9,7 +9,15 @@ app.controller('toDoListCtrl', ['$scope', function($scope) {
   toDoList.enter = function() {
     toDoList.lists.push($scope.inputText);
     $scope.inputText = '';
-    //console.log('------', toDoList.lists);
   };
+  toDoList.reset = function() {
+    $scope.inputText = '';
+  };
+
+  toDoList.clear = function() {
+    $scope.inputText = '';
+    toDoList.lists = [];
+  };
+
 
 }]);
