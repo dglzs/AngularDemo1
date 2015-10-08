@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toDoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>a simple to do app</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-controller="toDoListCtrl as listCtrl">
+  <div>
+  <label>To Do: </label>
+  <input type="text" name="input" ng-model="inputText" placeholder="please input your todos" required>
+  <button type="submit" ng-click="listCtrl.enter()">Enter</button>
+  </div>
+  <div>
+    <ul ng-repeat="list in listCtrl.lists track by $index">
+      <li>{{ list }}</li>
+    </ul>
+  </div>
+  <pre>test: {{ inputText }}</pre>
+</body>
+</html>
