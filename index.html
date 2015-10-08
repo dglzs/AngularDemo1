@@ -2,21 +2,54 @@
 <html lang="en" ng-app="toDoApp">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>a simple to do app</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-  <script src="main.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="main.css">
 </head>
-<body ng-controller="toDoListCtrl as listCtrl">
-  <div>
-  <label>To Do: </label>
-  <input type="text" name="input" ng-model="inputText" placeholder="please input your todos" required>
-  <button type="submit" ng-click="listCtrl.enter()">Enter</button>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Wat?ToDo!</a>
+     </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+<!--/.nav-collapse -->
   </div>
-  <div>
-    <ul ng-repeat="list in listCtrl.lists track by $index">
-      <li>{{ list }}</li>
-    </ul>
-  </div>
+</nav>
+<div class="container" ng-controller="toDoListCtrl as listCtrl">
+  <form class="form-inline">
+    <div class="form-group">
+      <label>To Do: </label>
+      <input type="text" name="input" class="form-control" ng-model="inputText" placeholder="please input your todos"
+             required>
+    </div>
+    <button type="submit" class="btn btn-success" ng-click="listCtrl.enter()">Enter</button>
+  </form>
+  <ul ng-repeat="list in listCtrl.lists track by $index">
+    <li>{{ list }}</li>
+  </ul>
   <pre>test: {{ inputText }}</pre>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
