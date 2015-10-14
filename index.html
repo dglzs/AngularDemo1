@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="toDoApp">
 <head>
   <meta charset="UTF-8">
@@ -32,20 +32,24 @@
     </div>
   </div>
 </nav>
-<div class="container" ng-controller="toDoListCtrl as listCtrl">
-  <form class="form-inline text-center">
+<div class="container" ng-controller="toDoListCtrl as listCtrl" style="width:50%">
+  <form class="form-inline">
     <div class="form-group">
       <label>To Do: </label>
       <input type="text" name="input" class="form-control" ng-model="inputText" placeholder="please input your todos">
     </div>
     <button type="submit" class="btn btn-success" ng-click="listCtrl.enter()">Enter</button>
     <button type="reset" class="btn btn-info" ng-click="listCtrl.reset()">Reset</button>
-    <button type="button" class="btn btn-danger" ng-click="listCtrl.clear()"><i class="fa fa-trash-o fa-lg"></i> Clear</button>
+    <button type="button" class="btn btn-danger" ng-click="listCtrl.clear()"><i class="fa fa-trash-o fa-lg"></i></button>
   </form>
-  <ul ng-repeat="list in listCtrl.lists track by $index">
-    <li>{{ list }}</li>
+
+  <ul ng-repeat="list in listCtrl.lists track by $index" ng-class="{done: list.done}">
+    <li><input type="checkbox" ng-model="list.done">{{ list.text }}</li>
   </ul>
-  <!--<pre>test: {{ inputText }}</pre>-->
+  <!-- <pre>
+    test: {{ inputText }}
+    lists: {{ listCtrl.lists }}
+  </pre> -->
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
