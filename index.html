@@ -43,8 +43,13 @@
     <button type="button" class="btn btn-danger" ng-click="listCtrl.clear()"><i class="fa fa-trash-o fa-lg"></i></button>
   </form>
 
-  <ul ng-repeat="list in listCtrl.lists track by $index" ng-class="{done: list.done}">
-    <li><input type="checkbox" ng-model="list.done">{{ list.text }}</li>
+  <ul ng-repeat="list in listCtrl.lists track by $index">
+    <li>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="list.done"><span ng-class="{done: list.done}">{{ list.text }}</span></li>
+        </label>
+      </div>
   </ul>
   <!-- <pre>
     test: {{ inputText }}
