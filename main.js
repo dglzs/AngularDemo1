@@ -5,19 +5,23 @@ var app = angular.module('toDoApp', []);
 
 app.controller('toDoListCtrl', ['$scope', function($scope) {
   var toDoList = this;
+  toDoList.inputText = '';
   toDoList.lists = [
-    {text: "I need to workout.", done: true}
+    {text: "running", done: false},
+    {text: "workout", done: true}
   ];
   toDoList.enter = function() {
-    toDoList.lists.push({text: $scope.inputText, done: false});
-    $scope.inputText = '';
+    if(toDoList.inputText) {
+      toDoList.lists.push({text: toDoList.inputText, done: false});
+      toDoList.inputText = '';
+    }
   };
   toDoList.reset = function() {
-    $scope.inputText = '';
+    toDoList.inputText = '';
   };
 
   toDoList.clear = function() {
-    $scope.inputText = '';
+    toDoList.inputText = '';
     toDoList.lists = [];
   };
 
